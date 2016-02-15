@@ -6,8 +6,9 @@ The goal for this project is a way of looking up, storing, and retrieving
 information for one's books. Using the [[https://openlibrary.org/dev/docs/api/books][Open Library]] and [[https://developers.google.com/books/docs/v1/getting_started][Google Books]] APIs, the
 user can look up a book by ISBN, and instantly get information such as the
 book's author(s), publication date, and subject keywords. The user can then
-augment this info with their own notes, such as where the book is kept, and a
-photo.
+augment this info with their own notes, such as where the book is kept or a
+photo. All of this is saved in a database, and the list of entries can be easily
+filtered and searched within the native application.
 
 The purpose of this application is to make it easy for people with vast book
 collections to be able to find any book they need, and also manage their
