@@ -23,12 +23,6 @@
          [data (map (lambda (x) (cadr x)) res)])
     `(book ,@data)))
 
-'((title "Purely functional data structures")
-  (authors ("Chris Okasaki"))
-  (pubdate 1999)
-  (publishers ("Cambridge University Press"))
-  (subjects ("Functional programming languages" "Data structures (Computer science)")))
-
 (define (isbn-setup p)
   (define (create-outer-panel msg)
     (define outer-panel%

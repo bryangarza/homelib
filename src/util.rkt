@@ -38,3 +38,9 @@
 (isbn-lookup "0700604553")
 
 (book? (book "Splitting the difference" ("Martin Benjamin") 1990 ("University Press of Kansas") ("Compromise (Ethics)" Ethics Integrity)))
+
+'((title "Purely functional data structures")
+  (authors ("Chris Okasaki"))
+  (pubdate 1999)
+  (publishers ("Cambridge University Press"))
+  (subjects ("Functional programming languages" "Data structures (Computer science)")))
