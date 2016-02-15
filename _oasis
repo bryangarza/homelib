@@ -1,0 +1,24 @@
+OASISFormat:  0.4
+OCamlVersion: >= 4.02.3
+Name:         homelib
+Version:      0.1
+Maintainers:  Bryan Garza
+Synopsis:     Home library cataloguing system
+Authors:      brygarza@gmail.com
+License:      GPL-3
+Plugins:      META (0.4), DevFiles (0.4)
+
+Executable homelib
+  Path: src
+  BuildTools: ocamlbuild
+  MainIs: homelib.ml
+  CompiledObject: best
+  BuildDepends:
+    core,
+    sexplib,
+    sexplib.syntax,
+    threads,
+    yojson,
+    lwt,
+    cohttp,
+    cohttp.lwt
