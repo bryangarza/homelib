@@ -21,7 +21,7 @@
          [sp (open-input-string aux)] ; string port
          [res (read sp)]
          [data (map (lambda (x) (cadr x)) res)])
-    `(book ,@data)))
+    (apply book data)))
 
 (define (isbn-setup p)
   (define (create-outer-panel msg)
