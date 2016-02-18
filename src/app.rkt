@@ -2,10 +2,12 @@
 
 (require racket/gui/base)
 (require racket/match)
+(require threading)
 
 (define homelib-version "0.1")
 (define homelib-name "Home Library")
 (define homelib-title (string-join (list homelib-name homelib-version)))
+(define homelib-binary "~/code/ocaml/homelib/homelib.native")
 
 (define frame (new frame% [label homelib-title]))
 
@@ -15,13 +17,13 @@
 (struct book (title authors pubdate publishers subjects))
 
 (define (isbn-lookup isbn)
-  (let* ([hl "~/code/ocaml/homelib/homelib.native"]
-         [cmd (string-join (list hl isbn))]
-         [aux (with-output-to-string (λ () (system cmd)))]
-         [sp (open-input-string aux)] ; string port
-         [res (read sp)]
-         [data (map cadr res)])
-    (apply book data)))
+  (let ([cmd (string-join (list homelib-binary isbn))])
+    ((λ~>> process    ; -> '(stdout stdin proc-id stderr f)
+           car
+           read       ; from an input port
+           (map cadr) ; (k v) -> v
+           (apply book))
+     cmd)))
 
 (define (isbn-setup p)
   (define (create-outer-panel msg)
