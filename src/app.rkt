@@ -20,7 +20,7 @@
          [aux (with-output-to-string (λ () (system cmd)))]
          [sp (open-input-string aux)] ; string port
          [res (read sp)]
-         [data (map (lambda (x) (cadr x)) res)])
+         [data (map cadr res)])
     (apply book data)))
 
 (define (isbn-setup p)
